@@ -1,12 +1,12 @@
 # Comandos iniciais:
-<pre>
+```bash
   mkdir entity-framework
   cd entity-framework
   dotnet new mvc
-</pre>
+```
 
 # Comandos git:
-<pre>
+```bash
   git init
   git add .
   git commit -m "Iniciando projeto"
@@ -15,11 +15,35 @@
   git remote add origin https://github.com/wotoss/entity-framework.git
   git branch -M main
   git push -u origin main
-</pre>
+```
 
 # Componentes instalados:
-<pre>
+```bash
   dotnet add package Pomelo.EntityFrameworkCore.MySql --version 5.0.
   dotnet add package Microsoft.EntityFrameworkCore.Tools --version 5.0.8
   dotnet add package Microsoft.EntityFrameworkCore --version 5.0.8
-</pre>
+```
+
+# Instalando mysql no servidor. Para fazer correções no banco de dados ex: alt senha.
+```SQL
+sudo apt install mysql-server
+sudo mysql -u root
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'woto';
+CREATE USER 'root'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY 'woto';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1';
+FLUSH PRIVILEGES;
+```
+
+# Comandos para migração:
+
+```shell
+    dotnet ef migrations add ClienteAdd
+    dotnet ef database update   
+```
+
+# Criar a base de dados
+```shell
+   mysql -uroot -p'woto'
+    exit => para sair
+    create database EntityFrameworkComunidade;
+```

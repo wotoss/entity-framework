@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using entity_framework.Servicos.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace entity_framework
 {
@@ -23,6 +25,8 @@ namespace entity_framework
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<DbContexto>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             services.AddControllersWithViews();
         }
 
