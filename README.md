@@ -47,3 +47,15 @@ FLUSH PRIVILEGES;
     exit => para sair
     create database EntityFrameworkComunidade;
 ```
+
+# Instalação do code generator
+```bash
+dotnet tool install -g dotnet-aspnet-codegenerator
+
+```
+
+# Gerando o scaffold de clientes
+```bash
+dotnet aspnet-codegenerator controller -name ClientesController -m Cliente 
+-dc DbContexto --relativeFolderPath Controllers --useDefaultLyout
+```
