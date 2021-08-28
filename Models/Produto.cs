@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace entity_framework.Models
 {
-    [Table("clientes")]
-    public class Cliente
+    [Table("produtos")]
+    public class Produto
     {
         [Key]
         [Required]
@@ -17,15 +17,19 @@ namespace entity_framework.Models
         [Required]
         public string Nome { get; set; }
         
-        [Column("observacao", TypeName ="text")]
-        [Required]
-        public string Observacao { get; set; }
+        [MaxLength(255)]
+        [Column("url_imagem")]
+        public string UrlImagem { get; set; }
 
-        [Column("endereco_id")]//esta é a propriedade
-        public int EnderecoId { get; set; }
+         [Column("descricao", TypeName ="text")]
+        public string Descricao { get; set; }
+
         
-        [ForeignKey("EnderecoId")]//esta é a foreingKey
-        public  Endereco Endereco { get; set;}
+        [Column("valor")]
+        [Required]
+        public double Valor { get; set; }
         
+        
+       
     }
 }
